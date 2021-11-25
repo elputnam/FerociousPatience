@@ -125,41 +125,45 @@ function activityMapping(){
   let s = 100;
   let l = 100;
   // let wig = random(width*.003, width*.007);
-  let wig = random(100);
+  //let wig = random(100);
    //let wig = map(mouseX, 0, width, 5, 25);
     // lightly active
     let a = map(light, 0, 1200, 175, 360);
+    let alp1 = map(light, 0, 1500, 0, 100);
     let w1 = map(light, 0, 1500, 0, width);
     let numA = int(random(1, 6));
     // fill(a, s, l, wig);
     // rect(0+w1, 0, width/2, height/2);
-    tint(a, s, l, w1);
+    tint(a, alp1, l, alp1);
     image(lowImages[numA], 0, 0, width/2, height/2)
 
     // very active
     let b = map(very, 0, 1200, 175, 360);
     let w2 = map(very, 0, 1500, 0, width);
     let numB = int(random(1, 18));
+    let alp2 = map(very, 0, 1500, 0, 100);
     // fill(b, s, l, wig);
-    tint(b, s, l, w2)
+    tint(b, alp2, l, alp2)
     // rect(width/2-w2, 0, width/2, height/2);
     image(highImages[numB], width/2, 0, width/2, height/2)
     
     // moderately active
     let c = map(moderate, 0, 1200, 175, 360);
     let w3 = map(moderate, 0, 1500, 0, width);
+    let alp3 = map(moderate, 0, 1500, 0, 100);
     let numC = int(random(1, 7));
     // fill(c, s, l, w3);
-    tint(c, s, l, w3);
+    tint(c, alp3, l, alp3);
     // rect(0+w3, height*.5, width/2, height/2);
     image(midImages[numC], 0, height*.5, width/2, height/2);
     
     // sedentary
     let d = map(sedentary, 0, 1200, 175, 360);
     let w4 = map(sedentary, 0, 1500, 0, width);
+    let alp4 = map(sedentary, 0, 1500, 0, 100);
     let numD = int(random(1, 15))
     // fill(d, s, l, w4);
-    tint(d, s, l, w4);
+    tint(d, alp4, l, alp4);
     // rect(width/2-w4, height*.5, width/2, height/2);
     image(sedImages[numD], width/2, height*.5, width/2, height/2);
 
