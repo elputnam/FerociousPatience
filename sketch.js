@@ -48,7 +48,8 @@ function preload(){
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  //createCanvas(windowWidth, windowHeight);
+  createCanvas(1000, 1000);
   colorMode(HSB, 360, 100, 100, 100);
   background(0);
   frameRate(10);
