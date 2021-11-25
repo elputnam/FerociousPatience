@@ -68,7 +68,7 @@ function draw() {
   
   background(back, 100, 100, random(1));
   // print(frameCount);
-  if (frameCount < 150){
+  if (frameCount < 100){
     noStroke();
     fill(random(175,200), random(100), random(100), random(100));
     for (let l = 0; l < 500; l++){
