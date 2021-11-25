@@ -51,7 +51,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   colorMode(HSB, 360, 100, 100, 100);
   background(0);
-  frameRate(8);
+  frameRate(10);
 
   //select month
   let month = int(random(18));
@@ -133,7 +133,7 @@ function activityMapping(){
     // fill(a, s, l, wig);
     // rect(0+w1, 0, width/2, height/2);
     tint(a, s, l, wig);
-    image(lowImages[numA], 0, 0, width/2, height/2)
+    image(lowImages[numA], 0+w1, 0, width/2, height/2)
 
     // very active
     let b = map(very, 0, 1200, 175, 360);
@@ -142,7 +142,7 @@ function activityMapping(){
     // fill(b, s, l, wig);
     tint(b, s, l, w2)
     // rect(width/2-w2, 0, width/2, height/2);
-    image(highImages[numB], width/2, 0, width/2, height/2)
+    image(highImages[numB], width/2-w2, 0, width/2, height/2)
     
     // moderately active
     let c = map(moderate, 0, 1200, 175, 360);
@@ -151,7 +151,7 @@ function activityMapping(){
     // fill(c, s, l, w3);
     tint(c, s, l, w3);
     // rect(0+w3, height*.5, width/2, height/2);
-    image(midImages[numC], 0, height*.5, width/2, height/2);
+    image(midImages[numC], 0+w3, height*.5, width/2, height/2);
     
     // sedentary
     let d = map(sedentary, 0, 1200, 175, 360);
@@ -160,7 +160,7 @@ function activityMapping(){
     // fill(d, s, l, w4);
     tint(d, s, l, w4);
     // rect(width/2-w4, height*.5, width/2, height/2);
-    image(sedImages[numD], width/2, height*.5, width/2, height/2);
+    image(sedImages[numD], width/2-w4, height*.5, width/2, height/2);
 
 
   // // stepdust
