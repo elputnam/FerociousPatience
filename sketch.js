@@ -49,7 +49,7 @@ function preload(){
 
 function setup() {
   //createCanvas(windowWidth, windowHeight);
-  createCanvas(800, 800);
+  createCanvas(600, 600);
   colorMode(HSB, 360, 100, 100, 100);
   background(0);
   frameRate(10);
@@ -82,7 +82,7 @@ function draw() {
     num_steps = Object.keys(stepCount).length;
   }
 
-  if (frameCount > 150){
+  if (frameCount > 100){
     
     light = lightActive[day_num]['value'];
     very = veryActive[day_num]['value'];
