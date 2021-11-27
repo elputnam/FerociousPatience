@@ -48,11 +48,11 @@ function preload(){
 }
 
 function setup() {
-  //createCanvas(windowWidth, windowHeight);
+  createCanvas(windowWidth, windowHeight);
   // createCanvas(600, 600);
-  createCanvas(windowWidth, windowWidth);
+  // createCanvas(windowWidth, windowWidth);
   colorMode(HSB, 360, 100, 100, 100);
-  background(0);
+  background(0, 100, 10);
   frameRate(15);
 
   //select month
@@ -70,12 +70,11 @@ function draw() {
   // background(back, 100, 100, random(1));
   // print(frameCount);
   if (frameCount < 100){
+    background(0, 100, 10, 10)
     noStroke();
-    fill(random(175,200), random(100), random(100), random(100));
-    for (let l = 0; l < 500; l++){
-      circle(random(width), random(height), random(100));
+      viralTime();
     }
-  }
+    
 
   if (frameCount==100){
     num_days = Object.keys(lightActive).length;
@@ -90,11 +89,11 @@ function draw() {
     // num_steps = Object.keys(stepCount).length;
   }
 
-  if (frameCount==110){
+  if (frameCount==150){
     background(0);
   } 
 
-  if (frameCount > 110){
+  if (frameCount > 150){
     
     light = lightActive[day_num]['value'];
     very = veryActive[day_num]['value'];
@@ -199,3 +198,17 @@ function activityMapping(){
   // }
   // pop();
 }
+
+let viralTime = function(){
+  if (frameCount%2==0){
+    let num = 20;
+    push();
+    translate(width / 2, height / 2);
+    let cir = (360 / num) * (frameCount % num);
+    rotate(radians(random(cir)));
+    noStroke();
+    fill(175, random(100), 100);
+    circle(width*.1, 0, width*.07);
+    pop();
+    }
+  }
