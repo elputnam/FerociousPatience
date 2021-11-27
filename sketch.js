@@ -3,7 +3,7 @@ let lightList = []; //lightly active minutes
 let moderateList = []; //moderately active minutes
 let veryList = []; //very active minutes
 let sedentaryList = []; //sedentary minutes
-let stepList = []; //steps
+// let stepList = []; //steps
 let back = 175;
 
 // Daily Cycle - variables for selceting and cycling throguh days
@@ -11,12 +11,12 @@ let lightActive = [];
 let  moderateActive = [];
 let veryActive = []; 
 let notActive = [];
-let stepCount = [];
+// let stepCount = [];
 let light_data, very_data, moderate_data, sedentary_data;
 let num_days; // number of days of data
 let day_num = 0;
-let num_steps; //number of step intervals
-let step_num = 0;
+// let num_steps; //number of step intervals
+// let step_num = 0;
 
 let light, very, moderate, sedentary, steps;
 
@@ -32,7 +32,7 @@ function preload(){
   moderateList = loadStrings('moderatelyActive-dataList.txt');
   veryList = loadStrings('veryActive-dataList.txt');
   sedentaryList = loadStrings('sedentary-dataList.txt');
-  stepList = loadStrings('steps-dataList.txt');
+  // stepList = loadStrings('steps-dataList.txt');
   for (let i = 1; i < 16; i++){
     sedImages[i] = loadImage("data/images/sedentary-" + i + ".png");
   } 
@@ -52,7 +52,7 @@ function setup() {
   createCanvas(600, 600);
   colorMode(HSB, 360, 100, 100, 100);
   background(0);
-  frameRate(10);
+  // frameRate(15);
 
   //select month
   let month = int(random(18));
@@ -61,11 +61,10 @@ function setup() {
     moderateActive = loadJSON(moderateList[month]);
     veryActive = loadJSON(veryList[month]);
     notActive = loadJSON(sedentaryList[month]);
-    stepCount = loadJSON(stepList[month]);
+    // stepCount = loadJSON(stepList[month]);
 }
 
 function draw() {
-  
   background(back, 100, 100, random(1));
   // print(frameCount);
   if (frameCount < 100){
@@ -78,8 +77,9 @@ function draw() {
 
   if (frameCount==100){
     num_days = Object.keys(lightActive).length;
+    background(0);
     // print(num_days);
-    num_steps = Object.keys(stepCount).length;
+    // num_steps = Object.keys(stepCount).length;
   }
 
   if (frameCount > 100){
@@ -88,11 +88,11 @@ function draw() {
     very = veryActive[day_num]['value'];
     moderate = moderateActive[day_num]['value'];
     sedentary = notActive[day_num]['value'];
-    steps = stepCount[step_num]['value'];
+    // steps = stepCount[step_num]['value'];
     back = map(very, 0, 50, 175, 0);
     // print("light:", light, "very:", very, "moderate:", moderate, "sedentary:", sedentary, "steps:", steps);
     day_num += 1;
-    step_num += 1;
+    // step_num += 1;
 
     activityMapping();
 
@@ -112,9 +112,9 @@ function draw() {
       day_num = 0;
       }
     
-    if (step_num >= num_steps){
-      step_num = 0;
-    }
+    // if (step_num >= num_steps){
+    //   step_num = 0;
+    // }
     }
   }
 
@@ -124,49 +124,51 @@ function activityMapping(){
   //let l = random(100);
   let s = 100;
   let l = 100;
-  // let wig = random(width*.003, width*.007);
-  //let wig = random(100);
-   //let wig = map(mouseX, 0, width, 5, 25);
     // lightly active
     let a = map(light, 0, 1200, 175, 360);
     let alp1 = map(light, 0, 1500, 0, 100);
     let w1 = map(light, 0, 1500, 0, width);
     let numA = int(random(1, 6));
-    // fill(a, s, l, wig);
-    // rect(0+w1, 0, width/2, height/2);
+    let lightImage = int(map(light, 0, 1500, 1, 6)); 
+    // fill(a, s, l, w1);
+    // rect(0 + w1, 0, width/2, height/2);
     tint(a, alp1, l, alp1);
-    image(lowImages[numA], 0, 0, width/2, height/2)
+    image(lowImages[lightImage], 0, 0, width/2, height/2)
 
     // very active
     let b = map(very, 0, 1200, 175, 360);
     let w2 = map(very, 0, 1500, 0, width);
     let numB = int(random(1, 18));
     let alp2 = map(very, 0, 1500, 0, 100);
-    // fill(b, s, l, wig);
+    let veryImage = int(map(very, 0, 1500, 1, 18)) 
+    // fill(b, s, l, w2);
     tint(b, alp2, l, alp2)
     // rect(width/2-w2, 0, width/2, height/2);
-    image(highImages[numB], width/2, 0, width/2, height/2)
+    image(highImages[veryImage], width/2, 0, width/2, height/2)
     
-    // moderately active
-    let c = map(moderate, 0, 1200, 175, 360);
-    let w3 = map(moderate, 0, 1500, 0, width);
-    let alp3 = map(moderate, 0, 1500, 0, 100);
-    let numC = int(random(1, 7));
-    // fill(c, s, l, w3);
-    tint(c, alp3, l, alp3);
-    // rect(0+w3, height*.5, width/2, height/2);
-    image(midImages[numC], 0, height*.5, width/2, height/2);
-    
+   
     // sedentary
     let d = map(sedentary, 0, 1200, 175, 360);
     let w4 = map(sedentary, 0, 1500, 0, width);
     let alp4 = map(sedentary, 0, 1500, 0, 100);
     let numD = int(random(1, 15))
+    let sedenImage = int(map(sedentary, 0, 1500, 1, 15)) 
     // fill(d, s, l, w4);
     tint(d, alp4, l, alp4);
     // rect(width/2-w4, height*.5, width/2, height/2);
-    image(sedImages[numD], width/2, height*.5, width/2, height/2);
+    image(sedImages[sedenImage], width/2, height*.5, width/2, height/2);
 
+     // moderately active
+    let c = map(moderate, 0, 1200, 175, 360);
+    let w3 = map(moderate, 0, 1500, 0, width);
+    let alp3 = map(moderate, 0, 1500, 0, 100);
+    let numC = int(random(1, 7));
+    let modImage = int(map(moderate, 0, 1500, 1, 7)) 
+    // fill(c, s, l, w3);
+    tint(c, alp3, l, alp3);
+    // rect(0+w3, height*.5, width/2, height/2);
+    image(midImages[modImage], 0, height*.5, width/2, height/2);
+    
 
   // // stepdust
   // push();
