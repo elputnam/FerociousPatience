@@ -48,8 +48,9 @@ function preload(){
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  //createCanvas(windowWidth, windowHeight);
   // createCanvas(600, 600);
+  createCanvas(windowWidth, windowWidth);
   colorMode(HSB, 360, 100, 100, 100);
   background(0);
   frameRate(15);
@@ -93,7 +94,7 @@ function draw() {
     background(0);
   }  
 
-  if (frameCount > 100){
+  if (frameCount > 110){
     
     light = lightActive[day_num]['value'];
     very = veryActive[day_num]['value'];
