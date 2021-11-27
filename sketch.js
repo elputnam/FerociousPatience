@@ -52,7 +52,7 @@ function setup() {
   createCanvas(600, 600);
   colorMode(HSB, 360, 100, 100, 100);
   background(0);
-  // frameRate(15);
+  frameRate(15);
 
   //select month
   let month = int(random(18));
@@ -78,6 +78,7 @@ function draw() {
   if (frameCount==100){
     num_days = Object.keys(lightActive).length;
     background(0);
+    text()
     // print(num_days);
     // num_steps = Object.keys(stepCount).length;
   }
@@ -140,7 +141,7 @@ function activityMapping(){
     let w2 = map(very, 0, 1500, 0, width);
     let numB = int(random(1, 18));
     let alp2 = map(very, 0, 1500, 0, 100);
-    let veryImage = int(map(very, 0, 1500, 1, 18)) 
+    let veryImage = int(map(very, 0, 500, 1, 18)) 
     // fill(b, s, l, w2);
     tint(b, alp2, l, alp2)
     // rect(width/2-w2, 0, width/2, height/2);
@@ -163,7 +164,7 @@ function activityMapping(){
     let w3 = map(moderate, 0, 1500, 0, width);
     let alp3 = map(moderate, 0, 1500, 0, 100);
     let numC = int(random(1, 7));
-    let modImage = int(map(moderate, 0, 1500, 1, 7)) 
+    let modImage = int(map(moderate, 0, 500, 1, 7)) 
     // fill(c, s, l, w3);
     tint(c, alp3, l, alp3);
     // rect(0+w3, height*.5, width/2, height/2);
