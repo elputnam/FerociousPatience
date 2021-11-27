@@ -169,7 +169,7 @@ function activityMapping(){
     let w3 = map(moderate, 0, 1500, 0, width);
     let alp3 = map(moderate, 0, 1500, 0, 100);
     let numC = int(random(1, 7));
-    let modImage = int(map(moderate, 0, 500, 1, 7)) 
+    let modImage = int(map(moderate, 0, 200, 1, 7)) 
     // fill(c, s, l, w3);
     tint(c, alp3, l, alp3);
     // rect(0+w3, height*.5, width/2, height/2);
