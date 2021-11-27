@@ -65,7 +65,8 @@ function setup() {
 }
 
 function draw() {
-  background(back, 100, 100, random(1));
+  // background(255);
+  // background(back, 100, 100, random(1));
   // print(frameCount);
   if (frameCount < 100){
     noStroke();
@@ -133,7 +134,7 @@ function activityMapping(){
     // lightly active
     let a = map(light, 0, 1200, 175, 360);
     let alp1 = map(light, 0, 1500, 0, 100);
-    let w1 = map(light, 0, 1500, 0, width);
+    let w1 = map(light, 0, 400, 0, width);
     let numA = int(random(1, 6));
     let lightImage = int(map(light, 0, 1500, 1, 6)); 
     // fill(a, s, l, w1);
