@@ -78,7 +78,7 @@ function draw() {
   if (frameCount==100){
     num_days = Object.keys(lightActive).length;
     background(0);
-    text()
+    // text()
     // print(num_days);
     // num_steps = Object.keys(stepCount).length;
   }
