@@ -90,9 +90,9 @@ function draw() {
     // num_steps = Object.keys(stepCount).length;
   }
 
-  if (frameCount==101){
+  if (frameCount==110){
     background(0);
-  }  
+  } 
 
   if (frameCount > 110){
     
