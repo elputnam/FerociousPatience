@@ -89,6 +89,10 @@ function draw() {
     // num_steps = Object.keys(stepCount).length;
   }
 
+  if (frameCount==101){
+    background(0);
+  }  
+
   if (frameCount > 100){
     
     light = lightActive[day_num]['value'];
