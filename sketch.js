@@ -146,7 +146,7 @@ function activityMapping(){
     let w2 = map(very, 0, 1500, 0, width);
     let numB = int(random(1, 18));
     let alp2 = map(very, 0, 1500, 0, 100);
-    let veryImage = int(map(very, 0, 500, 1, 18)) 
+    let veryImage = int(map(very, 0, 200, 1, 18)) 
     // fill(b, s, l, w2);
     tint(b, alp2, l, alp2)
     // rect(width/2-w2, 0, width/2, height/2);
