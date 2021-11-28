@@ -24,7 +24,17 @@ let light, very, moderate, sedentary, steps;
 let sedImages = [];
 let lowImages = [];
 let midImages = [];
-let highImages = []
+let highImages = [];
+
+//ccapture
+// const T = 1;
+// const NUM_FRAMES = 200;
+// var capture = false; // default is to not capture frames, can be changed with button in browser
+var capturer = new CCapture({
+  format:'webm', 
+  framerate: 15
+});
+var btn1;
 
 function preload(){
   //Load list of json file names
@@ -49,12 +59,12 @@ function preload(){
 
 function setup() {
   //createCanvas(windowWidth, windowHeight);
-  // createCanvas(600, 600);
-  if (windowWidth > windowHeight){
-    createCanvas(windowHeight, windowHeight);
-  } else {
-    createCanvas(windowWidth, windowWidth);
-  }
+  createCanvas(1080, 1080);
+  // if (windowWidth > windowHeight){
+  //   createCanvas(windowHeight, windowHeight);
+  // } else {
+  //   createCanvas(windowWidth, windowWidth);
+  // }
 
   colorMode(HSB, 360, 100, 100, 100);
   background(0, 100, 10);
@@ -68,12 +78,20 @@ function setup() {
     veryActive = loadJSON(veryList[month]);
     notActive = loadJSON(sedentaryList[month]);
     // stepCount = loadJSON(stepList[month]);
+
+  //CCapture
+  btn1 = document.createElement('button');
+  btn1.textContent = "save recording";
+  document.body.appendChild(btn1);
+  btn1.onclick = save_record;
 }
 
 function draw() {
   // background(255);
   // background(back, 100, 100, random(1));
   // print(frameCount);
+  if (frameCount==1) capturer.start(); // start the animation capture
+  
   if (frameCount < 100){
     background(0, 100, 10, 10)
     noStroke();
@@ -132,6 +150,11 @@ function draw() {
     //   step_num = 0;
     // }
     }
+    capturer.capture(document.getElementById('defaultCanvas0')); 
+    if (frameCount==7200){
+      save_record();
+    }
+    print(frameCount);
   }
 
 function activityMapping(){
@@ -216,4 +239,8 @@ let viralTime = function(){
     circle(width*.1, 0, width*.07);
     pop();
     }
+  }
+
+  function save_record() {
+    capturer.save();
   }
