@@ -217,3 +217,7 @@ let viralTime = function(){
     pop();
     }
   }
+
+  function windowResized() {
+    resizeCanvas(windowWidth, windowHeight);
+  }
