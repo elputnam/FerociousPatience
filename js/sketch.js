@@ -31,8 +31,14 @@ let highImages = [];
 // const NUM_FRAMES = 200;
 // var capture = false; // default is to not capture frames, can be changed with button in browser
 var capturer = new CCapture({
+<<<<<<< HEAD
   format:'webm', 
   framerate: 8
+=======
+  format:'gif', 
+  workersPath: 'js/', 
+  framerate: 15
+>>>>>>> c7bec57f2bf38dcea652c00ab3a2f54662738ad5
 });
 var btn1;
 
@@ -92,14 +98,14 @@ function draw() {
   // print(frameCount);
   if (frameCount==1) capturer.start(); // start the animation capture
   
-  if (frameCount < 100){
-    background(0, 100, 10, 10)
-    noStroke();
-      viralTime();
-    }
+  // if (frameCount < 100){
+  //   background(0, 100, 10, 10)
+  //   noStroke();
+  //     viralTime();
+  //   }
     
 
-  if (frameCount==100){
+  if (frameCount==1){
     num_days = Object.keys(lightActive).length;
     background(0);
     textSize(50);
@@ -112,11 +118,11 @@ function draw() {
     // num_steps = Object.keys(stepCount).length;
   }
 
-  if (frameCount==150){
-    background(0);
-  } 
+  // if (frameCount==0){
+  //   background(0);
+  // } 
 
-  if (frameCount > 150){
+  if (frameCount > 50){
     
     light = lightActive[day_num]['value'];
     very = veryActive[day_num]['value'];
@@ -151,7 +157,11 @@ function draw() {
     // }
     }
     capturer.capture(document.getElementById('defaultCanvas0')); 
+<<<<<<< HEAD
     if (frameCount==7600){
+=======
+    if (frameCount==250){
+>>>>>>> c7bec57f2bf38dcea652c00ab3a2f54662738ad5
       save_record();
     }
     print(frameCount);
