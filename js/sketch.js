@@ -32,7 +32,7 @@ let highImages = [];
 // var capture = false; // default is to not capture frames, can be changed with button in browser
 var capturer = new CCapture({
   format:'webm', 
-  framerate: 15
+  framerate: 8
 });
 var btn1;
 
@@ -68,7 +68,7 @@ function setup() {
 
   colorMode(HSB, 360, 100, 100, 100);
   background(0, 100, 10);
-  frameRate(15);
+  frameRate(8);
 
   //select month
   let month = int(random(18));
@@ -151,7 +151,7 @@ function draw() {
     // }
     }
     capturer.capture(document.getElementById('defaultCanvas0')); 
-    if (frameCount==7200){
+    if (frameCount==7600){
       save_record();
     }
     print(frameCount);
