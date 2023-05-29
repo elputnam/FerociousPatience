@@ -99,7 +99,7 @@ function draw() {
   } 
 
   if (frameCount > 150){
-    
+    let dateTime = lightActive[day_num]["dateTime"];
     light = lightActive[day_num]['value'];
     very = veryActive[day_num]['value'];
     moderate = moderateActive[day_num]['value'];
@@ -124,6 +124,14 @@ function draw() {
     // for (let i = 0; i < height*0.1; i++){
     // circle(mouseX, mouseY, random(10)*i);
     // }
+
+     //Display day
+     fill(255);
+     textSize(30);
+     noStroke();
+     textAlign(RIGHT);
+     text(dateTime, width-40, height-40);
+
     if (day_num >= num_days){
       day_num = 0;
       }
