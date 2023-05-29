@@ -130,7 +130,7 @@ function draw() {
      textSize(30);
      noStroke();
      textAlign(RIGHT);
-     text(dateTime, width-40, height-40);
+     text(dateTime, width+120, height-40);
 
     if (day_num >= num_days){
       day_num = 0;
