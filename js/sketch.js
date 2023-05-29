@@ -27,20 +27,10 @@ let midImages = [];
 let highImages = [];
 
 //ccapture
-// const T = 1;
-// const NUM_FRAMES = 200;
-// var capture = false; // default is to not capture frames, can be changed with button in browser
 var capturer = new CCapture({
-<<<<<<< HEAD
   format:'webm', 
   framerate: 8
-=======
-  format:'gif', 
-  workersPath: 'js/', 
-  framerate: 15
->>>>>>> c7bec57f2bf38dcea652c00ab3a2f54662738ad5
 });
-var btn1;
 
 function preload(){
   //Load list of json file names
@@ -48,7 +38,6 @@ function preload(){
   moderateList = loadStrings('moderatelyActive-dataList.txt');
   veryList = loadStrings('veryActive-dataList.txt');
   sedentaryList = loadStrings('sedentary-dataList.txt');
-  // stepList = loadStrings('steps-dataList.txt');
   for (let i = 1; i < 16; i++){
     sedImages[i] = loadImage("data/images/sedentary-" + i + ".png");
   } 
@@ -79,6 +68,7 @@ function setup() {
   //select month
   let month = int(random(18));
     print(month);
+
     lightActive = loadJSON(lightList[month]);
     moderateActive = loadJSON(moderateList[month]);
     veryActive = loadJSON(veryList[month]);
@@ -93,16 +83,7 @@ function setup() {
 }
 
 function draw() {
-  // background(255);
-  // background(back, 100, 100, random(1));
-  // print(frameCount);
   if (frameCount==1) capturer.start(); // start the animation capture
-  
-  // if (frameCount < 100){
-  //   background(0, 100, 10, 10)
-  //   noStroke();
-  //     viralTime();
-  //   }
     
 
   if (frameCount==1){
@@ -118,12 +99,12 @@ function draw() {
     // num_steps = Object.keys(stepCount).length;
   }
 
-  // if (frameCount==0){
-  //   background(0);
-  // } 
+  if (frameCount == 49){
+    background(0);
+  } 
 
   if (frameCount > 50){
-    
+    let dateTime = lightActive[day_num]["dateTime"];
     light = lightActive[day_num]['value'];
     very = veryActive[day_num]['value'];
     moderate = moderateActive[day_num]['value'];
@@ -136,32 +117,19 @@ function draw() {
 
     activityMapping();
 
-    // mouse circle
-    // noFill();
-    // stroke(random(20,50), 25, 100);
-    // beginShape();
-    // curveVertex(width/2, height/2);
-    // curveVertex(mouseX+random(100), mouseY+random(100));
-    // curveVertex(mouseX+random(-100,100), mouseY+random(200));
-    // curveVertex(mouseX+random(-100,100), mouseY+random(-100,100));
-    // endShape(CLOSE);
-    // for (let i = 0; i < height*0.1; i++){
-    // circle(mouseX, mouseY, random(10)*i);
-    // }
+    //Display day
+    fill(255);
+    textSize(30);
+    noStroke();
+    textAlign(RIGHT);
+    text(dateTime, width+120, height-40);
+
     if (day_num >= num_days){
       day_num = 0;
       }
-    
-    // if (step_num >= num_steps){
-    //   step_num = 0;
-    // }
     }
     capturer.capture(document.getElementById('defaultCanvas0')); 
-<<<<<<< HEAD
-    if (frameCount==7600){
-=======
-    if (frameCount==250){
->>>>>>> c7bec57f2bf38dcea652c00ab3a2f54662738ad5
+    if (frameCount==2400){
       save_record();
     }
     print(frameCount);
